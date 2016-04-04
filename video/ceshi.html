@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+    </script>
+    <style>
+         body{ margin:0; }
+        .picBox{ width:1rem; height:1rem; -webkit-perspective:800px; -moz-perspective:800px; perspective:800px; position:absolute; }
+        .picBox div{ width:0.1rem; height:1rem; position:absolute; left:0.1rem; top:0; background:url(1.jpg) no-repeat; background-size:cover; transform-style:preserve-3d; -webkit-transform-style:preserve-3d; transform-origin:left 0.8rem; -webkit-transform-origin:left 0.8rem; }
+        .picBox>div{ left:0; }
+        .picBox div.show{ -webkit-transform:rotateY(-60deg) rotateX(5deg); }
+        .picBox>div.show{ -webkit-transform:rotateY(-60deg) rotateX(5deg) translateX(0.8rem); }
+    </style>
+    <script>
+        window.onload = function(){
+            var oPicBox = document.getElementsByClassName('picBox')[0];
+            function show3D(obj){
+                var aDiv = obj.getElementsByTagName('div');
+                for( var i=0; i < aDiv.length; i++ ){
+                    aDiv[i].style.transition = '0.5s';
+                    aDiv[i].className = 'show';
+                }
+            }
+            setTimeout(function(){
+                show3D(oPicBox);
+            }, 3000);
+
+        }
+    </script>
+</head>
+<body>
+<div class="picBox">
+    <div>
+        <div style="background-position: -0.1rem 0; ">
+            <div style="background-position: -0.2rem 0; ">
+                <div style="background-position: -0.3rem 0; ">
+                    <div style="background-position: -0.4rem 0; ">
+                        <div style="background-position: -0.5rem 0; ">
+                            <div style="background-position: -0.6rem 0; ">
+                                <div style="background-position: -0.7rem 0; ">
+                                    <div style="background-position: -0.8rem 0; ">
+                                        <div  style="background-position: -0.9rem 0; ">
+                                            <div  style="background-position: -1rem 0; "></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
